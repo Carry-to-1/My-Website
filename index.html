@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dipesh Kharel - Developer & Engineer</title>
+    
+    <meta name="description" content="Portfolio of Dipesh Kharel, showcasing a journey from Civil Engineering to Information Technology and web development.">
+    <meta name="author" content="Dipesh Kharel">
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        // Check local storage for dark mode preference immediately
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.documentElement.classList.add('dark-mode');
+        }
+    </script>
+</head>
+<body>
+
+    <header id="mainHeader">
+        <div class="container nav-content">
+            <a href="#home" class="logo">Dipesh Kharel</a>
+            <nav class="nav-menu" id="navMenu">
+                <ul role="list">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#research" class="nav-link">Research</a></li>
+                    <li><a href="#learn" class="nav-link">Learn</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-controls">
+                <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode" type="button">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Open mobile menu" type="button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="container hero-content-grid">
+                <div class="hero-text animate-in">
+                    <h1>Hi, I'm Dipesh Kharel</h1>
+                    <h2>Web Developer | IT Student | Engineer</h2>
+                    <a href="#projects" class="cta-button">View My Tech Projects</a>
+                </div>
+                <div class="hero-image-container animate-in">
+                    <picture>
+                        <img 
+                            src="profile.JPG" 
+                            alt="Dipesh Kharel Professional Portrait" 
+                            class="profile-image" 
+                            loading="eager" >
+                    </picture>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title animate-in">About Me</h2>
+                <div class="about-content animate-in">
+                    <p>I am a highly motivated individual with a unique background spanning both civil engineering and modern information technology. Currently pursuing a **Bachelor of Technical Education in Information Technology at Kathmandu University**, I am passionate about leveraging code to build dynamic, user-friendly web applications.</p>
+                    <p>My past experience in engineering has provided me with a strong foundation in project management, problem-solving, and attention to detail. I am now channeling these skills into my passion for web development, with a growing expertise in the MERN stack (MongoDB, Express.js, React/Next.js, Node.js) and a drive to create efficient and impactful digital solutions.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="section experience-section bg-light">
+            <div class="container">
+                <h2 class="section-title animate-in">Hands-On Experience</h2>
+                <div class="timeline-container animate-in">
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <span class="timeline-year">2023</span> 
+                        <div class="timeline-content card">
+                            <span class="mobile-year">2023</span> 
+                            <h3>Practical Training: Road & Culvert Survey</h3>
+                            <p class="company duration-info">In-School Training (3 Months)</p> 
+                            <ul>
+                                <li>Conducted comprehensive road alignment and topographical surveys using Leveling Instruments and Theodolite.</li>
+                                <li>Performed Culvert Survey and Estimation to ensure accurate drainage planning and quantity takeoff.</li>
+                                <li>Created detailed Road Estimation reports, contributing to the initial project planning phase.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <span class="timeline-year">2024</span>
+                        <div class="timeline-content card">
+                            <span class="mobile-year">2024</span> 
+                            <h3>Practical Training: Quantity Estimating & Costing</h3>
+                            <p class="company duration-info">In-School Training (3 Months)</p>
+                            <ul>
+                                <li>Calculated precise material and labor costs through Quantity Estimation for various building projects.</li>
+                                <li>Developed skills in efficient resource planning and budgetary control for medium-scale structures.</li>
+                                <li>Role was focused on technical analysis of construction drawings to derive accurate financial projections.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <span class="timeline-year">2025</span>
+                        <div class="timeline-content card">
+                            <span class="mobile-year">2025</span> 
+                            <h3>Professional OJT: Valuation & Drafting</h3>
+                            <p class="company duration-info">Ranimahal Engineering Consultancy, Butwal (6 Months)</p>
+                            <ul>
+                                <li>Conducted property surveys and detailed valuations for residential and commercial buildings.</li>
+                                <li>Utilized AutoCAD extensively for architectural drafting and creation of professional valuation maps.</li>
+                                <li>Contributed to official reports, performing data analysis to support property appraisal decisions.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section skills-section">
+            <div class="container">
+                <h2 class="section-title animate-in">Technical Skills</h2>
+                <div class="skills-grid animate-in">
+                    
+                    <div class="skill-card">
+                        <i class="fas fa-code icon-lg"></i>
+                        <h3>Web Development</h3>
+                        <p>HTML, CSS, JavaScript, Next.js, Node.js, Express.js, MongoDB.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <i class="fas fa-drafting-compass icon-lg"></i>
+                        <h3>Engineering & Design</h3>
+                        <p>AutoCAD (2D/3D), Revit (BIM), SketchUp, Quantity Estimation, Valuation.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <i class="fas fa-tools icon-lg"></i>
+                        <h3>Tools & Technologies</h3>
+                        <p>Git, GitHub, VS Code, C, Postman, MS Excel.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section projects-section bg-light">
+            <div class="container">
+                <h2 class="section-title animate-in">IT Projects</h2>
+                <div class="projects-grid animate-in">
+                    <div class="project-card">
+                        <div class="project-image-placeholder" style="background-color: #3f51b5;"></div>
+                        <div class="project-details">
+                            <h3>Full-Stack E-commerce Platform</h3>
+                            <p>A feature-rich online store built with Next.js for the frontend and an Express.js/MongoDB backend.</p>
+                            <a href="javascript:void(0)" class="project-link">View on GitHub <i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image-placeholder" style="background-color: #4CAF50;"></div>
+                        <div class="project-details">
+                            <h3>Task Management API</h3>
+                            <p>A robust RESTful API created with Node.js and Express.js to handle user authentication and task management.</p>
+                            <a href="javascript:void(0)" class="project-link">View on GitHub <i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image-placeholder" style="background-color: #E91E63;"></div>
+                        <div class="project-details">
+                            <h3>This Portfolio Website</h3>
+                            <p>A fully responsive personal website built from scratch with HTML, CSS, and vanilla JavaScript.</p>
+                            <a href="javascript:void(0)" class="project-link">View on GitHub <i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="research" class="section research-section">
+            <div class="container">
+                <h2 class="section-title animate-in">Technical Research & Papers</h2>
+                <div class="research-grid animate-in">
+                    
+                    <div class="research-card">
+                        <i class="fas fa-file-pdf icon-lg"></i>
+                        <h3>Thesis: Sustainable Water Management</h3>
+                        <p>Summary of final year project on implementing low-cost rainwater harvesting systems in rural structures.</p>
+                        <a href="path/to/research1.pdf" target="_blank" class="project-link">Download PDF <i class="fas fa-download"></i></a>
+                    </div>
+
+                    <div class="research-card">
+                        <i class="fas fa-chart-line icon-lg"></i>
+                        <h3>Report: Local Building Material Analysis</h3>
+                        <p>A comparative study on the strength and cost-efficiency of locally sourced materials vs. imported alternatives.</p>
+                        <a href="path/to/research2.pdf" target="_blank" class="project-link">View Report <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="learn" class="section learn-section bg-light">
+            <div class="container">
+                <h2 class="section-title animate-in">Learn With Me</h2>
+                <p class="section-subtitle animate-in" style="text-align: center; margin-bottom: 50px;">Digital resources, tutorials, and question banks to help you master engineering essentials.</p>
+                <div class="skills-grid learn-grid animate-in">
+                    
+                    <div class="skill-card">
+                        <i class="fas fa-drafting-compass icon-lg" style="color: #FF0000;"></i>
+                        <h3>AutoCAD Tutorials</h3>
+                        <p>Step-by-step guides from 2D drafting basics to advanced template creation.</p>
+                        <a href="javascript:void(0)" class="project-link">Start Learning <i class="fas fa-video"></i></a>
+                    </div>
+
+                    <div class="skill-card">
+                        <i class="fas fa-cube icon-lg" style="color: #00A388;"></i>
+                        <h3>Revit & BIM Modeling</h3>
+                        <p>Introduction to Building Information Modeling, family creation, and project documentation in Revit.</p>
+                        <a href="javascript:void(0)" class="project-link">Start Learning <i class="fas fa-video"></i></a>
+                    </div>
+
+                    <div class="skill-card">
+                        <i class="fas fa-building icon-lg" style="color: #FF9800;"></i>
+                        <h3>SketchUp Tutorials</h3>
+                        <p>Quick guides on 3D modeling for architecture, rendering workflow, and presentation tips.</p>
+                        <a href="javascript:void(0)" class="project-link">Start Learning <i class="fas fa-video"></i></a>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <i class="fas fa-book-open icon-lg" style="color: var(--primary-color);"></i>
+                        <h3>NEB Grade 12 Question Bank</h3>
+                        <p>Past questions and solutions for various subjects in the NEB Technical Stream.</p>
+                        <a href="path/to/question-bank.pdf" target="_blank" class="project-link">Download Bank <i class="fas fa-download"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <h2 class="section-title animate-in">Get In Touch</h2>
+                <form 
+                    class="contact-form animate-in" 
+                    action="mailto:mr.dipesh333@gmail.com" 
+                    method="post" 
+                    enctype="text/plain" 
+                    id="emailForm"
+                >
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="Name" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="Subject" placeholder="Briefly state your query or proposal" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="Body" rows="7" placeholder="Write your detailed message here..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="cta-button submit-button">Send Email</button>
+                    
+                    <p class="form-note">
+                        This button will open your default email application. You can also email me directly at: <strong>mr.dipesh333@gmail.com</strong>
+                    </p>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2024 Dipesh Kharel. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" aria-label="LinkedIn profile"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="GitHub profile"><i class="fab fa-github"></i></a>
+                <a href="#" aria-label="Twitter profile"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

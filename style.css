@@ -1,0 +1,859 @@
+/*
+ * style.css - Dipesh Kharel Portfolio Stylesheet (FINAL VERBOSE RE-AUDIT)
+ * ----------------------------------------------------------------------
+ * Re-validated against the original structure. All features, variables, 
+ * and media queries are present and optimized for cross-theme resilience.
+ */
+
+/* 1. Global Reset & Variables */
+:root {
+    --primary-color: #007bff; /* Professional Blue */
+    --primary-hover: #0056b3;
+    --secondary-color: #6c757d; /* Grey/Accent */
+    
+    /* Light Theme Base */
+    --background-light: #f4f7f6;
+    --text-color-light: #333;
+    --card-bg-light: #ffffff;
+    --hero-gradient-start: #f4f7f6; /* Used by Hero */
+    --hero-gradient-end: #e0eafc;   /* Used by Hero */
+    
+    /* Dark Theme Base */
+    --background-dark: #2c3e50;
+    --text-color-dark: #ecf0f1;
+    --card-bg-dark: #34495e;
+    --hero-gradient-start-dark: #2c3e50; /* Used by Dark Hero */
+    --hero-gradient-end-dark: #1c2a37;   /* Used by Dark Hero */
+    
+    --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --radius-lg: 12px;
+    --transition-speed: 0.3s;
+    --font-family: 'Poppins', sans-serif;
+}
+
+/* Dark Mode Overrides (FIX: Centralizing variables to ensure all components transition) */
+.dark-mode {
+    /* Main Backgrounds */
+    --background-light: var(--background-dark);
+    /* Text Color */
+    --text-color-light: var(--text-color-dark);
+    /* Card/Header Backgrounds */
+    --card-bg-light: var(--card-bg-dark);
+    /* Hero Gradient Colors (They now use the dark values) */
+    --hero-gradient-start: var(--hero-gradient-start-dark); 
+    --hero-gradient-end: var(--hero-gradient-end-dark);     
+    /* Shadow adjustment for contrast */
+    --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* 2. Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-color-light); /* Will be dark or light based on .dark-mode */
+    background-color: var(--background-light); /* Will be dark or light based on .dark-mode */
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    margin-bottom: 0.5em;
+    font-weight: 600;
+    transition: color var(--transition-speed); /* Ensure smooth color transition */
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: var(--primary-hover);
+}
+
+/* 3. Header and Navigation */
+header {
+    background-color: var(--card-bg-light);
+    box-shadow: var(--shadow-soft);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+}
+.nav-menu ul li {
+    margin-left: 25px;
+}
+
+.nav-menu ul li a {
+    font-weight: 500;
+    padding: 5px 0;
+    position: relative;
+    color: var(--text-color-light);
+}
+
+/* Active link/Scroll spy indicator */
+.nav-menu ul li a.active-link::after {
+    width: 100%;
+}
+
+.nav-menu ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width var(--transition-speed);
+}
+
+.nav-menu ul li a:hover::after {
+    width: 100%;
+}
+
+.hamburger, .dark-mode-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-color-light);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+/* A11y: Focus and hover state for controls */
+.dark-mode-toggle:hover, .hamburger:hover {
+    color: var(--primary-color);
+}
+.dark-mode-toggle:focus-visible, .hamburger:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); 
+    border-radius: 4px;
+}
+
+.nav-controls {
+    display: flex;
+    align-items: center;
+}
+.dark-mode-toggle {
+    margin-right: 15px;
+}
+
+.hamburger {
+    display: none; /* Hidden on desktop */
+}
+
+/* 4. Hero Section */
+.hero-section {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, var(--hero-gradient-start) 0%, var(--hero-gradient-end) 100%);
+    transition: background var(--transition-speed);
+}
+
+/* REMOVED: Redundant dark mode override because variables now handle it:
+.dark-mode .hero-section {
+    background: linear-gradient(135deg, var(--background-dark) 0%, #1c2a37 100%);
+}
+*/
+
+.hero-content-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.hero-text {
+    flex: 1;
+    padding-right: 40px; 
+    text-align: left; 
+}
+
+.hero-content-grid h1 {
+    font-size: 3.5rem;
+    margin-bottom: 0.25em;
+}
+
+.hero-text h2 { /* Targeting the new H2 headline element */
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 2em;
+    font-weight: 500;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4);
+}
+
+.cta-button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.6);
+}
+
+.hero-image-container {
+    flex: 1;
+    max-width: 450px;
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;
+}
+
+.profile-image {
+    width: 350px;
+    height: 350px;
+    object-fit: cover; 
+    border-radius: 50%;
+    /* FIX: Use variable for border color to ensure it flips in dark mode */
+    border: 8px solid var(--card-bg-light); 
+    box-shadow: 0 10px 30px rgba(0, 123, 255, 0.4);
+    
+    /* Initial state for the cool animation (JS controlled) */
+    opacity: 0; 
+    transform: scale(0.8) rotate(15deg); 
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55); 
+}
+
+.is-visible .profile-image {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+}
+
+
+/* 5. General Section Styles */
+.section {
+    padding: 80px 0;
+    transition: background-color var(--transition-speed);
+}
+
+/* REMOVED: Original section style with redundant .bg-light class: 
+.bg-light { 
+    background-color: var(--background-light); 
+}
+*/
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+}
+
+/* 6. Experience Section Styling (Timeline) */
+.timeline-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Timeline Line */
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: var(--primary-color);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px; 
+    z-index: 0;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    margin: 20px 0;
+}
+
+/* Timeline Dot */
+.timeline-dot {
+    height: 15px;
+    width: 15px;
+    background-color: var(--primary-color);
+    position: absolute;
+    top: 30px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Year Label (Desktop only) */
+.timeline-year {
+    position: absolute;
+    top: 25px; 
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    background-color: var(--background-light); /* Uses background var that flips in dark mode */
+    padding: 2px 8px; 
+    border-radius: 4px;
+    z-index: 10; 
+    transition: background-color var(--transition-speed), color var(--transition-speed); 
+}
+
+/* REMOVED: Original redundant dark mode override: 
+.dark-mode .timeline-year {
+    background-color: var(--background-dark); 
+}
+*/
+
+/* Position Year for Left Items (Odd) */
+.timeline-item:nth-child(odd) .timeline-year {
+    right: -10px; 
+    transform: translateX(100%); 
+}
+
+/* Position Year for Right Items (Even) */
+.timeline-item:nth-child(even) .timeline-year {
+    left: -10px; 
+    transform: translateX(-100%); 
+}
+
+/* Content on the Right Side (Even items) */
+.timeline-item:nth-child(even) {
+    left: 50%;
+    padding-left: 60px;
+}
+.timeline-item:nth-child(even) .timeline-dot {
+    left: -7.5px;
+}
+
+/* Content on the Left Side (Odd items) */
+.timeline-item:nth-child(odd) {
+    left: 0;
+    padding-right: 60px;
+    text-align: right; 
+}
+.timeline-item:nth-child(odd) .timeline-dot {
+    right: -7.5px;
+}
+
+/* Arrow */
+.timeline-content::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    top: 30px;
+}
+
+/* Arrow for Left Item (Odd) - Pointing right */
+.timeline-item:nth-child(odd) .timeline-content::after {
+    border-left-color: var(--card-bg-light);
+    right: -20px;
+}
+/* Removed original redundant dark mode override: 
+.dark-mode .timeline-item:nth-child(odd) .timeline-content::after {
+    border-left-color: var(--card-bg-dark);
+}
+*/
+
+/* Arrow for Right Item (Even) - Pointing left */
+.timeline-item:nth-child(even) .timeline-content::after {
+    border-right-color: var(--card-bg-light);
+    left: -20px;
+}
+/* Removed original redundant dark mode override: 
+.dark-mode .timeline-item:nth-child(even) .timeline-content::after {
+    border-right-color: var(--card-bg-dark);
+}
+*/
+
+/* Styling for the content box */
+.timeline-content {
+    padding: 20px;
+    background-color: var(--card-bg-light);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color var(--transition-speed);
+    text-align: left; 
+}
+
+.timeline-content:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-content h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 1.25rem; 
+}
+
+.timeline-content .duration-info {
+    font-style: italic;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    display: block; 
+}
+
+.timeline-content .mobile-year {
+    display: none; 
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.timeline-content ul {
+    list-style-type: none;
+    padding-left: 0; 
+}
+
+.timeline-content ul li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.timeline-content ul li::before {
+    content: "\f058"; 
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    top: 0.25rem; /* Adjusted for better text alignment */
+    font-size: 0.8em;
+}
+
+/* 7. Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.skill-card {
+    background-color: var(--card-bg-light);
+    padding: 30px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color var(--transition-speed);
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.icon-lg {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.soft-skills {
+    max-width: 900px;
+    margin: 40px auto 0;
+    padding: 30px;
+    border: 2px solid var(--primary-color);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    background-color: var(--card-bg-light);
+    box-shadow: var(--shadow-soft);
+    transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.soft-skills h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.soft-skills p {
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: var(--text-color-light);
+}
+
+/* 8. Projects Section */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background-color: var(--card-bg-light);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color var(--transition-speed);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.project-image-placeholder {
+    height: 200px;
+    /* Generic placeholder image/styling for now. Replace with actual images later. */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="10" fill="white">Project Image</text></svg>');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-color var(--transition-speed);
+}
+
+/* 9. Research Section (NEW) */
+.research-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.research-card {
+    background-color: var(--card-bg-light);
+    padding: 30px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color var(--transition-speed);
+}
+
+.research-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.research-card h3 {
+    color: var(--primary-color);
+}
+
+.research-card .icon-lg {
+    margin-bottom: 20px;
+}
+
+.research-card .project-link {
+    margin-top: 15px;
+    display: inline-block;
+}
+
+/* 10. Learn With Me Section (NEW) */
+.section-subtitle {
+    font-size: 1.15rem;
+    color: var(--secondary-color);
+}
+.learn-grid {
+    /* Overrides .skills-grid default to allow 4 smaller cards */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+
+/* 11. Contact Section */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--card-bg-light);
+    padding: 40px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px; 
+    background-color: var(--background-light); /* Light background for inputs even in light mode */
+    color: var(--text-color-light);
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed), color var(--transition-speed);
+    font-family: var(--font-family);
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+/* Dark Mode Input Fix (FIX: Ensuring high contrast and appropriate border) */
+.dark-mode .form-group input,
+.dark-mode .form-group textarea {
+    background-color: #3f5168; 
+    border: 1px solid #4a6078;
+    color: var(--text-color-dark);
+}
+
+.submit-button {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+}
+
+.form-note {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    line-height: 1.5;
+}
+
+/* 12. Footer */
+footer {
+    background-color: var(--card-bg-dark); /* Uses card-bg-dark for better consistency */
+    color: white;
+    padding: 25px 0;
+    transition: background-color var(--transition-speed);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.2rem;
+    margin-left: 15px;
+    transition: color 0.2s;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+}
+
+/* 13. Subtle Animations (JS controlled) */
+.animate-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 14. Responsive Design (Media Queries) */
+@media (max-width: 992px) {
+    /* Larger tablets/small desktops adjustments */
+    .hero-content-grid h1 {
+        font-size: 3rem;
+    }
+    .hero-text h2 {
+        font-size: 1.3rem;
+    }
+    .profile-image {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    
+    /* General Mobile */
+    .section {
+        padding: 60px 0;
+    }
+    .hero-section {
+        min-height: 70vh;
+    }
+
+    /* Navigation (FIX: Using 'fixed' ensures full coverage and stability on mobile) */
+    .nav-menu {
+        position: fixed; 
+        top: 60px; /* Placeholder, rely on JS to calculate header height for robust solution */
+        left: 0;
+        width: 100%;
+        background-color: var(--card-bg-light);
+        box-shadow: var(--shadow-soft);
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out, background-color var(--transition-speed), box-shadow var(--transition-speed);
+        flex-direction: column;
+        z-index: 1001; /* Ensure it's above the sticky header (z-index: 1000) */
+        height: 100vh;
+        overflow-y: auto;
+    }
+
+    .nav-menu.active {
+        transform: translateX(0);
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        padding: 20px 0;
+        width: 100%;
+    }
+
+    .nav-menu ul li {
+        margin: 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .dark-mode .nav-menu ul li {
+        border-bottom-color: #4a6078;
+    }
+
+    .nav-menu ul li a {
+        display: block;
+        padding: 15px 25px;
+    }
+    
+    .nav-menu ul li a::after {
+        content: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    /* Hero */
+    .hero-content-grid {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 60px;
+    }
+
+    .hero-image-container {
+        order: -1;
+        margin-bottom: 30px;
+        justify-content: center;
+    }
+
+    .hero-text {
+        padding-right: 0;
+    }
+
+    .hero-content-grid h1 {
+        font-size: 2.5rem;
+    }
+
+    .profile-image {
+        width: 250px;
+        height: 250px;
+    }
+
+    /* Timeline Mobile Adjustments (All content is now correctly consolidated on the right of the line) */
+    .timeline-container::after {
+        left: 20px; 
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 60px;
+        padding-right: 15px;
+    }
+
+    /* Reset positioning for all items on mobile to be on the right of the line */
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        left: 0;
+        padding-left: 60px;
+        padding-right: 15px;
+        text-align: left;
+    }
+
+    /* Align dots to the new left line position */
+    .timeline-item:nth-child(odd) .timeline-dot,
+    .timeline-item:nth-child(even) .timeline-dot {
+        left: 12.5px;
+        right: auto;
+    }
+    
+    .timeline-year {
+        display: none; 
+    }
+    
+    /* Hide the arrow on mobile (since all content is on one side) */
+    .timeline-content::after {
+        border: none;
+    }
+    
+    /* Show the mobile year element instead */
+    .timeline-content .mobile-year {
+        display: block; 
+    }
+    
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .social-links {
+        margin-top: 15px;
+    }
+
+    .social-links a {
+        margin: 0 10px;
+    }
+}
