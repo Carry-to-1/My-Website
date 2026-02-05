@@ -61,6 +61,8 @@
 
 html {
     scroll-behavior: smooth;
+    height: 100%;
+    /* Ensure full height for sticky footer */
 }
 
 body {
@@ -76,6 +78,33 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+
+.project-image-placeholder {
+    height: 200px;
+    /* Removed SVG background to fix centering issues */
+    /* background-image: ... */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-color var(--transition-speed);
+
+    /* Centering Text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-image-placeholder::after {
+    content: "Project Image";
+    color: white;
+    /* Ensure visibility on colored backgrounds */
+    font-size: 1.5rem;
+    /* Larger, more visible text */
+    font-weight: 500;
+    font-family: var(--font-family);
+    /* Match site font */
+    opacity: 0.9;
 }
 
 main {
@@ -583,12 +612,26 @@ header {
 
 .project-image-placeholder {
     height: 200px;
-    /* Generic placeholder image/styling for now. Replace with actual images later. */
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="10" fill="white">Project Image</text></svg>');
+    /* Used flexbox for perfect centering instead of SVG background */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     transition: background-color var(--transition-speed);
+
+    /* Centering Text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-image-placeholder::after {
+    content: "Project Image";
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.5rem;
+    font-family: 'Times New Roman', serif;
+    /* Matching the screenshot's aesthetic if desired, or use var(--font-family) for cleaner look. Let's use var(--font-family) */
+    font-family: var(--font-family);
+    font-weight: 500;
 }
 
 .project-details {
