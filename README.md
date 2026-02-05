@@ -8,6 +8,3 @@ This is the source code for my personal portfolio website. It is designed to sho
 - **Features:** Dark Mode, Responsive Design, Scroll Animations
 
 This project was built from scratch to demonstrate foundational web development knowledge.
-
-
-Check it out : https://dipeshkharel.com.np/

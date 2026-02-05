@@ -5,13 +5,13 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // --- Common Elements ---
     const htmlElement = document.documentElement;
     const mainHeader = document.getElementById('mainHeader');
     const navLinks = document.querySelectorAll('.nav-menu a');
-    const sections = document.querySelectorAll('section[id]'); 
-    
+    const sections = document.querySelectorAll('section[id]');
+
     // --- 1. Mobile Navigation (Hamburger Menu) ---
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('navMenu');
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
             link.addEventListener('click', () => {
                 // Check if the menu is currently visible (assuming 'active' class means visible)
                 if (navMenu.classList.contains('active')) {
-                    toggleNav(); 
+                    toggleNav();
                 }
             });
         });
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         animationObserver.observe(element);
     });
 
-    
+
     // --- 3. Dark Mode Toggle ---
     const darkModeToggle = document.getElementById('darkModeToggle');
     const darkModeIcon = darkModeToggle ? darkModeToggle.querySelector('i') : null;
@@ -95,8 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (darkModeToggle) {
         darkModeToggle.addEventListener('click', () => {
             // 1. Toggle the class on the <html> element
-            htmlElement.classList.toggle('dark-mode'); 
-            
+            htmlElement.classList.toggle('dark-mode');
+
             // 2. Determine the new state
             const isDark = htmlElement.classList.contains('dark-mode');
 
@@ -106,15 +106,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    
+
     // --- 4. ScrollSpy (Active Navigation Link) ---
     // Calculates the header height dynamically for accurate intersection observation
-    const headerHeight = mainHeader ? mainHeader.offsetHeight : 0; 
-    
+    const headerHeight = mainHeader ? mainHeader.offsetHeight : 0;
+
     // Use a top margin equal to the negative header height + a small offset (e.g., 1px) 
     // This makes the intersection point right below the fixed header.
     const scrollSpyOptions = {
-        rootMargin: `-${headerHeight + 1}px 0px 0px 0px`, 
+        rootMargin: `-${headerHeight + 1}px 0px 0px 0px`,
         threshold: 0.2 // Trigger when the top 20% of the section hits the margin line
     };
 
@@ -135,18 +135,41 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     };
-    
+
     const scrollSpyObserver = new IntersectionObserver(scrollSpyCallback, scrollSpyOptions);
 
-    // Observe all sections
+    // Observe all sections that exist
     sections.forEach(section => {
-        scrollSpyObserver.observe(section);
+        if (section) {
+            scrollSpyObserver.observe(section);
+        }
     });
-    
-    // Initial check to ensure 'home' is active on page load
+
+    // Initial check to ensure 'home' is active on page load IF we are on home
     const initialHomeLink = document.querySelector('.nav-menu a[href="#home"]');
-    if (initialHomeLink) {
+    // Only set home as active if we are actually on the homepage (url ends with index.html or /)
+    const isHomePage = window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/');
+
+    if (initialHomeLink && isHomePage && !window.location.hash) {
         initialHomeLink.classList.add('active-link');
     }
-    
+
+    // Highlight active link for other pages
+    const path = window.location.pathname;
+    const pageLinks = {
+        'projects.html': 'Projects',
+        'research.html': 'Research',
+        'learn.html': 'Learn'
+    };
+
+    for (const [page, linkText] of Object.entries(pageLinks)) {
+        if (path.endsWith(page)) {
+            const activeLink = Array.from(navLinks).find(link => link.textContent.trim() === linkText);
+            if (activeLink) {
+                navLinks.forEach(link => link.classList.remove('active-link'));
+                activeLink.classList.add('active-link');
+            }
+        }
+    }
+
 });

@@ -63,6 +63,15 @@ body {
     color: var(--text-color-light); /* Will be dark or light based on .dark-mode */
     background-color: var(--background-light); /* Will be dark or light based on .dark-mode */
     transition: background-color var(--transition-speed), color var(--transition-speed);
+    
+    /* Sticky Footer Setup */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
 }
 
 .container {
